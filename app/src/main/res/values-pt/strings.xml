@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AppL1</string>
+    <string name="home_page">Pagina da minha Atividade 1</string>
+    <string name="a2">A2</string>
+    <string name="a1">A1</string>
+    <string name="aluno">Nº22916 Hugo Guedes</string>
+    <string name="second_page">Atividade 2</string>
+</resources>
