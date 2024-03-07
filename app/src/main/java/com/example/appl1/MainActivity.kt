@@ -12,8 +12,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val Button1 = findViewById<Button>(R.id.button)
+
         Button1.setOnClickListener {
-            val intent = Intent(this, MainActivity2::class.java)
+            val myString = getString(R.string.Test)
+            val intent = Intent(this, MainActivity2::class.java).apply {
+                putExtra("Test", myString)
+
+            }
             startActivity(intent)
         }
     }

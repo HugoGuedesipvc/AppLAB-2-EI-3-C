@@ -5,20 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/button"
-        android:layout_width="358dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/a2" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="55dp"
+        android:layout_width="100dp"
+        android:layout_height="140dp"
         android:layout_gravity="center"
         android:text="@string/home_page"
         android:textSize="20sp" />
