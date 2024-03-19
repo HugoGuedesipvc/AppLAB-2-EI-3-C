@@ -1,0 +1,22 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/readFragment">
+
+    <fragment
+        android:id="@+id/readFragment"
+        android:name="com.example.appl1.fragments.read.Read"
+        android:label="fragment_read"
+        tools:layout="@layout/fragment_read" >
+        <action
+            android:id="@+id/action_readFragment_to_createFragment"
+            app:destination="@id/createFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createFragment"
+        android:name="com.example.appl1.fragments.create.Create"
+        android:label="fragment_create"
+        tools:layout="@layout/fragment_create" />
+</navigation>
