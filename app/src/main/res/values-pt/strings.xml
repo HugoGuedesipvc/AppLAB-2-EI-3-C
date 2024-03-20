@@ -7,4 +7,15 @@
     <string name="aluno">Nº22916 Hugo Guedes</string>
     <string name="second_page">Atividade 2</string>
     <string name="Test">JOMSPT</string>
+    <string name="Error2">A descrição deve ter mais de 5 caracteres</string>
+    <string name="Create_success">Nota criada com sucesso!</string>
+    <string name="Delete">Nota eliminada com sucesso!</string>
+    <string name="Update">Atualizado com sucesso!</string>
+    <string name="Title">Titulo</string>
+    <string name="Description">descrição</string>
+    <string name="Save">Guardar</string>
+    <string name="DeleteFrontend">Tem certeza de que deseja eliminar esta nota?</string>
+    <string name="ok">Confirmar</string>
+    <string name="UpdateFrontEnd">atualizar</string>
+    <string name="DeleteButton">eliminar</string>
 </resources>

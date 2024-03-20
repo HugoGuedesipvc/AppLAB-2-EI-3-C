@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.appl1.R
 import com.example.appl1.data.entities.Note
 import com.example.appl1.data.vm.NoteViewModel
@@ -19,6 +20,7 @@ class UpdateFragment : Fragment() {
     private lateinit var titleEditText: EditText
     private lateinit var descriptionEditText: EditText
     private lateinit var updateButton: Button
+    private lateinit var note: Note
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +33,11 @@ class UpdateFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupView(view)
+
+        note = UpdateFragmentArgs.fromBundle(requireArguments()).note!!
+        titleEditText.setText(note.title)
+        descriptionEditText.setText(note.description)
+
         setupButton()
     }
 
@@ -42,13 +49,14 @@ class UpdateFragment : Fragment() {
 
     private fun setupButton() {
         updateButton.setOnClickListener {
-            val note = Note().apply {
+            note.apply {
                 title = titleEditText.text.toString()
                 description = descriptionEditText.text.toString()
             }
             noteViewModel.update(note)
 
-            Toast.makeText(requireContext(), "Atualizado com sucesso!", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "@string/Update", Toast.LENGTH_LONG).show()
+            findNavController().navigateUp()
         }
     }
 }

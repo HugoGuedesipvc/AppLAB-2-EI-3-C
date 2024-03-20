@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.appl1.R
 import com.example.appl1.data.entities.Note
 import com.example.appl1.data.vm.NoteViewModel
+import java.util.Date
 
 class Create : Fragment() {
 
@@ -43,14 +44,19 @@ class Create : Fragment() {
 
     private fun setupButton() {
         saveButton.setOnClickListener {
-            val note = Note().apply {
-                title = titleEditText.text.toString()
-                description = descriptionEditText.text.toString()
-            }
-            noteViewModel.insert(note)
+            val title = titleEditText.text.toString()
+            val description = descriptionEditText.text.toString()
+            val Date = Date()
 
-            Toast.makeText(requireContext(), "Gravado com sucesso!", Toast.LENGTH_LONG).show()
-            findNavController().navigateUp()
+            if (description.length < 5) {
+                Toast.makeText(requireContext(), "@string/Error2", Toast.LENGTH_LONG).show()
+            } else {
+                val note = Note(title = title, description = description)
+                noteViewModel.insert(note)
+
+                Toast.makeText(requireContext(), "@string/Create_success", Toast.LENGTH_LONG).show()
+                findNavController().navigateUp()
+            }
         }
     }
 }

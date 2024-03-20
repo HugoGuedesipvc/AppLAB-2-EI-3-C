@@ -7,4 +7,15 @@
     <string name="aluno">Nº22916 Hugo Guedes</string>
     <string name="second_page">Activity 2</string>
     <string name="Test">JOMSENG</string>
+    <string name="Error2">Description must be more than 5 characters</string>
+    <string name="Create_success">Note created with sucess</string>
+    <string name="Delete">Note deleted</string>
+    <string name="Update">Updated with success</string>
+    <string name="Title">Title</string>
+    <string name="Description">Description</string>
+    <string name="Save">Save</string>
+    <string name="DeleteFrontend">Are you sure that you want to remove?</string>
+    <string name="ok">"Confirm "</string>
+    <string name="UpdateFrontEnd">Update</string>
+    <string name="DeleteButton">Destroy</string>
 </resources>

@@ -3,18 +3,26 @@ package com.example.appl1.fragments.read
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appl1.R
 import com.example.appl1.data.entities.Note
 
-class NoteListAdapter : RecyclerView.Adapter<NoteListAdapter.NoteViewHolder>() {
+class NoteListAdapter(
+    //private val onNoteClick: (Note) -> Unit,
+    private val onNoteUpdate: (Note) -> Unit,
+    private val onNoteDelete: (Note) -> Unit
+) : RecyclerView.Adapter<NoteListAdapter.NoteViewHolder>() {
 
     private var notes = emptyList<Note>()
 
     class NoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val noteTitle: TextView = itemView.findViewById(R.id.noteTitle)
         val noteDescription: TextView = itemView.findViewById(R.id.noteDescription)
+        val noteDate: TextView = itemView.findViewById(R.id.noteDate)
+        val buttonUpdate: Button = itemView.findViewById(R.id.updateButton)
+        val buttonDelete: Button = itemView.findViewById(R.id.deleteButton)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
@@ -27,6 +35,10 @@ class NoteListAdapter : RecyclerView.Adapter<NoteListAdapter.NoteViewHolder>() {
         val currentNote = notes[position]
         holder.noteTitle.text = currentNote.title
         holder.noteDescription.text = currentNote.description
+        holder.noteDate.text = currentNote.data.toString()
+        //holder.itemView.setOnClickListener { onNoteClick(currentNote) }
+        holder.buttonUpdate.setOnClickListener { onNoteUpdate(currentNote) }
+        holder.buttonDelete.setOnClickListener { onNoteDelete(currentNote) }
     }
 
     override fun getItemCount(): Int {

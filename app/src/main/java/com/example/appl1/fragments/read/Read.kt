@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appl1.R
+import com.example.appl1.R.id.recyclerview
 import com.example.appl1.data.vm.NoteViewModel
 
 class Read : Fragment() {
@@ -33,18 +34,24 @@ class Read : Fragment() {
     }
 
     private fun setupRecyclerView(view: View) {
-        recyclerView = view.findViewById(R.id.recyclerview)
-        adapter = NoteListAdapter()
+        recyclerView = view.findViewById(recyclerview)
+        adapter = NoteListAdapter(
+            onNoteUpdate = { note ->
+                val action = ReadDirections.actionReadFragmentToUpdateFragment(note)
+                findNavController().navigate(action)
+            },
+            onNoteDelete = { note ->
+                val action = ReadDirections.actionReadFragmentToDeleteFragment(note)
+                findNavController().navigate(action)
+            }
+        )
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
     }
-
 
     private fun observeData() {
         noteViewModel.allNotes.observe(viewLifecycleOwner, { notes ->
             notes?.let { adapter.setNotes(it) }
         })
     }
-
 }
