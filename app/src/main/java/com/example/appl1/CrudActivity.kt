@@ -27,21 +27,18 @@ class CrudActivity : AppCompatActivity() {
             when (destination.id) {
                 R.id.createFragment -> {
                     fab.hide()
-                    toolbar.title = "Create"
                 }
                 R.id.readFragment -> {
                     fab.show()
-                    toolbar.title = "Read"
                 }
                 R.id.updateFragment -> {
                     fab.hide()
-                    toolbar.title = "Update"
                 }
                 R.id.deleteFragment -> {
                     fab.hide()
-                    toolbar.title = "Delete"
                 }
             }
+            toolbar.title = destination.label
         }
     }
 }
