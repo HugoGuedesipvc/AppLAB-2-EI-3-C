@@ -39,7 +39,7 @@ class DeleteFragment : Fragment() {
             note = DeleteFragmentArgs.fromBundle(requireArguments()).note!!
             noteViewModel.delete(note)
 
-            Toast.makeText(requireContext(), "Nota eliminada com sucesso!", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), getString(R.string.Delete), Toast.LENGTH_LONG).show()
             findNavController().navigateUp()
         }
     }

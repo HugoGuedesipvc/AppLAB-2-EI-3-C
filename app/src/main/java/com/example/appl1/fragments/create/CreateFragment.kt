@@ -15,7 +15,7 @@ import com.example.appl1.data.entities.Note
 import com.example.appl1.data.vm.NoteViewModel
 import java.util.Date
 
-class Create : Fragment() {
+class CreateFragment : Fragment() {
 
     private val noteViewModel: NoteViewModel by viewModels()
     private lateinit var titleEditText: EditText
@@ -54,7 +54,7 @@ class Create : Fragment() {
                 val note = Note(title = title, description = description)
                 noteViewModel.insert(note)
 
-                Toast.makeText(requireContext(), "@string/Create_success", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(), getString(R.string.Create_success), Toast.LENGTH_LONG).show()
                 findNavController().navigateUp()
             }
         }

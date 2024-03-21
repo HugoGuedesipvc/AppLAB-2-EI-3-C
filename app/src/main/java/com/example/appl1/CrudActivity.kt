@@ -2,10 +2,8 @@ package com.example.appl1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
+import androidx.appcompat.widget.Toolbar
 import androidx.navigation.findNavController
-import com.example.appl1.fragments.create.Create
-import com.example.appl1.fragments.read.Read
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
@@ -17,6 +15,8 @@ class CrudActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.crudlayout)
 
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
         fab = findViewById(R.id.fab)
         fab.setOnClickListener {
             findNavController(R.id.nav_host_fragment).navigate(R.id.createFragment)
@@ -24,12 +24,24 @@ class CrudActivity : AppCompatActivity() {
 
         val navController = findNavController(R.id.nav_host_fragment)
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.createFragment) {
-                fab.hide()
-            } else {
-                fab.show()
+            when (destination.id) {
+                R.id.createFragment -> {
+                    fab.hide()
+                    toolbar.title = "Create"
+                }
+                R.id.readFragment -> {
+                    fab.show()
+                    toolbar.title = "Read"
+                }
+                R.id.updateFragment -> {
+                    fab.hide()
+                    toolbar.title = "Update"
+                }
+                R.id.deleteFragment -> {
+                    fab.hide()
+                    toolbar.title = "Delete"
+                }
             }
         }
-
     }
 }

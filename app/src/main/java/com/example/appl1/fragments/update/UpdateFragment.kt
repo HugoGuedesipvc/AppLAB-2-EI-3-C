@@ -53,10 +53,17 @@ class UpdateFragment : Fragment() {
                 title = titleEditText.text.toString()
                 description = descriptionEditText.text.toString()
             }
-            noteViewModel.update(note)
-
-            Toast.makeText(requireContext(), "@string/Update", Toast.LENGTH_LONG).show()
-            findNavController().navigateUp()
+            if (note.description.length < 5) {
+                Toast.makeText(
+                    requireContext(),
+                    "Description must be more than 5 characters",
+                    Toast.LENGTH_LONG
+                ).show()
+            } else {
+                noteViewModel.update(note)
+                Toast.makeText(requireContext(), getString(R.string.UpdateFrontEnd), Toast.LENGTH_LONG).show()
+                findNavController().navigateUp()
+            }
         }
     }
 }

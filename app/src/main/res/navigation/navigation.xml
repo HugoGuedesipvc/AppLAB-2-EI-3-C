@@ -45,7 +45,7 @@
 
     <fragment
         android:id="@+id/createFragment"
-        android:name="com.example.appl1.fragments.create.Create"
+        android:name="com.example.appl1.fragments.create.CreateFragment"
         android:label="fragment_create"
         tools:layout="@layout/fragment_create" />
 
